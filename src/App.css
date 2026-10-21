@@ -1,0 +1,294 @@
+/* ---------- 应用布局 ---------- */
+.app-root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(min-content, 1fr) auto;
+  position: relative;
+}
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-width: 0;
+  padding: calc(env(safe-area-inset-top) + clamp(0.5rem, 3dvh, 2rem))
+    max(0.75rem, env(safe-area-inset-right)) 0.5rem
+    max(0.75rem, env(safe-area-inset-left));
+  position: relative;
+  z-index: 10;
+}
+.app-bg-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.app-bg-blob {
+  position: absolute;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 9999px;
+  filter: blur(64px);
+  background: rgb(23, 45, 26);
+}
+.app-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-block: clamp(0.75rem, 3dvh, 2rem);
+  padding-inline: clamp(0.75rem, 3vw, 1.5rem);
+  min-width: 0;
+  position: relative;
+  margin-top: 0;
+  z-index: 10;
+}
+.app-nav {
+  flex-shrink: 0;
+  padding-bottom: calc(env(safe-area-inset-bottom) + clamp(0.5rem, 2dvh, 1rem));
+  padding-inline: clamp(0.75rem, 3vw, 1.5rem);
+  min-width: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.nav-inner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ---------- 头部标题 ---------- */
+/* ---------- 底部操作按钮 ---------- */
+.btn-add,
+.btn-manage {
+  width: 8rem;
+  height: clamp(3rem, 7dvh, 4rem);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 0;
+  border: none;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #000;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+.btn-add:focus-visible,
+.btn-manage:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 4px;
+}
+/* ---------- 邮票齿孔按钮 ---------- */
+.btn-confirm {
+  position: relative;
+  left: 1rem;
+  isolation: isolate;
+  min-width: 0;
+  width: 80%;
+  min-height: clamp(3rem, 10dvh, 5rem);
+  border: none;
+  background: transparent;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+  transition: color 150ms ease, opacity 150ms ease;
+}
+.btn-confirm::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--stamp-color, #000);
+  mask:
+    radial-gradient(circle at 8px 0, transparent 4px, #000 4.5px) 0 0 / 16px
+      100% repeat-x,
+    radial-gradient(circle at 8px 100%, transparent 4px, #000 4.5px) 0 0 / 16px
+      100% repeat-x,
+    radial-gradient(circle at 0 8px, transparent 4px, #000 4.5px) 0 0 / 100%
+      16px repeat-y,
+    radial-gradient(circle at 100% 8px, transparent 4px, #000 4.5px) 0 0 / 100%
+      16px repeat-y;
+  mask-composite: intersect;
+  transition: background-color 150ms ease;
+}
+.btn-confirm > span {
+  justify-content: center;
+}
+.btn-confirm:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 5px;
+}
+.btn-confirm:not(:disabled) {
+  --stamp-color: #000;
+}
+.btn-confirm:disabled {
+  --stamp-color: #333;
+  color: #d1d5db;
+  cursor: not-allowed;
+}
+
+/* 应用页面布局与装饰 */
+.app-bg-blob-primary {
+  top: -5rem;
+  right: -5rem;
+}
+.app-bg-blob-secondary {
+  top: 10rem;
+  left: -6rem;
+}
+.app-bg-blob-accent {
+  bottom: 10rem;
+  right: 2.5rem;
+}
+.app-content {
+  width: 100%;
+  max-width: 48rem;
+  min-width: 0;
+}
+.app-filmstrip {
+  width: 100%;
+  margin-bottom: clamp(0.75rem, 3dvh, 2rem);
+}
+.app-spin-action {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  align-items: center;
+  gap: clamp(0.5rem, 3vw, 1rem);
+  width: min(100%, 48rem);
+  margin-inline: auto;
+}
+/* ---------- 右上角磨砂日历按钮 ---------- */
+/* ---------- 光盘播放器 ---------- */
+.btn-cd {
+  position: relative;
+  left:0.5rem;
+  isolation: isolate;
+  width: 100%;
+  max-width: clamp(80px, 18dvh, 140px);
+  aspect-ratio: 1;
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #cbd5d1;
+  color: #000;
+  box-shadow: 0 8px 20px rgb(0 0 0 / 20%);
+  cursor: pointer;
+}
+.cd-disc {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #555;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(
+      circle,
+      transparent 0 3px,
+      rgb(255 255 255 / 25%) 3px 4px,
+      transparent 4px 6px
+    ),
+    conic-gradient(
+      from 20deg,
+      #e4e7e7,
+      #8e9699,
+      #f4f7f5,
+      #b7d8ca,
+      #dad1ea,
+      #f7f7f0,
+      #8c979b,
+      #e4e7e7
+    );
+  box-shadow: inset 0 0 0 5px rgb(255 255 255 / 35%);
+  animation: cd-rotate 2s linear infinite paused;
+}
+.btn-cd[aria-busy="true"] .cd-disc {
+  animation-play-state: running;
+}
+.cd-center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 44%;
+  aspect-ratio: 1;
+  border: 2px solid #111;
+  border-radius: 50%;
+  background: #111;
+  color: #fff;
+  box-shadow: 0 0 0 5px rgb(255 255 255 / 55%);
+}
+.cd-play-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 2px;
+}
+.cd-play-label {
+  font-size: 0.7rem;
+  line-height: 1;
+  font-weight: 700;
+}
+.btn-cd:disabled {
+  cursor: not-allowed;
+}
+.btn-cd:disabled:not([aria-busy="true"]) {
+  opacity: 0.45;
+}
+.btn-cd:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 5px;
+}
+.btn-confirm:disabled {
+  opacity: 0.45;
+}
+@keyframes cd-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cd-disc {
+    animation: none;
+  }
+}
+.account-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  max-width: 48rem;
+  margin: 0 auto 12px;
+  color: #a7b9ac;
+  font-size: 12px;
+}
+.account-row span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.account-row button {
+  flex-shrink: 0;
+  color: #78d495;
+  cursor: pointer;
+  padding: 4px 0;
+}
+.account-row button:focus-visible {
+  outline: 2px solid #78d495;
+  outline-offset: 4px;
+}

@@ -1,0 +1,26 @@
+.film-track { position: relative; overflow: hidden; background: #000; touch-action: pan-y; cursor: grab; }
+.film-track:active { cursor: grabbing; }
+.film-track:focus-visible { outline: 2px solid var(--panel-green, #3a9756); outline-offset: -2px; }
+.film-track::before, .film-track::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 2px;
+  background: #000; transform: translateX(-50%); z-index: 2; pointer-events: none;
+}
+.film-track::before { left: calc(100% / 3); }
+.film-track::after { left: calc(200% / 3); }
+.film-position-shift { width: 100%; }
+.film-cards-row { display: flex; width: 100%; align-items: stretch; transition: transform 180ms ease-out; }
+.film-cards-row.is-dragging { transition: none; }
+.food-card {
+  box-sizing: border-box; flex: 0 0 calc(100% / 3); min-width: 0; aspect-ratio: 1 / 1;
+  border: 2px solid #000; display: flex; align-items: center; justify-content: center;
+  padding: 10px 6px; background: #fff; user-select: none;
+}
+.food-card-text {
+  font-size: clamp(1rem, 4.5vw, 1.375rem); line-height: 1.2; font-weight: 600;
+  color: #000; text-align: center; overflow-wrap: anywhere; pointer-events: none;
+}
+@media (max-height: 700px) {
+  .food-card { aspect-ratio: auto; min-height: 4rem; height: 16dvh; }
+  .food-card-text { font-size: 1rem; }
+}
+@media (max-height: 600px) { .food-card { height: 13dvh; } }

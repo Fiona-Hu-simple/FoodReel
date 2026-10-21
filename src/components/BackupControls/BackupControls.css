@@ -1,0 +1,62 @@
+.backup-controls {
+  position: relative;
+  flex-shrink: 0;
+  color: #bde8c9;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: normal;
+}
+.backup-controls summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px;
+  border: 1px solid #45614d;
+  border-radius: 10px;
+  background: rgb(15 30 20 / 60%);
+  cursor: pointer;
+}
+.backup-controls summary::-webkit-details-marker {
+  display: none;
+}
+.backup-controls summary:focus-visible {
+  outline: 2px solid #78d495;
+  outline-offset: 3px;
+}
+.backup-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: min(260px, 70vw);
+  z-index: 5;
+  padding: 14px;
+  border: 1px solid #45614d;
+  border-radius: 14px;
+  background: rgb(15 30 20 / 97%);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 12px 30px #0008;
+}
+.backup-menu p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #afc3b5;
+}
+.backup-menu button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #345b40;
+  color: #eff6f0;
+  cursor: pointer;
+}
+.backup-menu .backup-status {
+  margin-top: 10px;
+  color: #bde8c9;
+}
+
+

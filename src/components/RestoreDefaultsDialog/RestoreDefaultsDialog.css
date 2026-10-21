@@ -1,0 +1,29 @@
+.restore-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(360px, calc(100vw - 40px));
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  padding: 28px 24px 24px;
+  border: 1px solid rgb(120 212 149 / 28%);
+  border-radius: 24px;
+  background: rgb(17 30 22 / 95%);
+  color: #f0f5f1;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 80px rgb(0 0 0 / 55%);
+  text-align: center;
+}
+.restore-dialog::backdrop { background: rgb(0 0 0 / 65%); backdrop-filter: blur(4px); }
+.restore-dialog[open] { animation: restore-dialog-enter 180ms ease-out; }
+.restore-dialog h2 { margin: 0 0 12px; font-size: 20px; font-weight: 700; }
+.restore-dialog p { margin: 0; font-size: 14px; line-height: 1.7; }
+.restore-dialog .restore-dialog-note { margin-top: 8px; color: #a7b9ac; font-size: 12px; line-height: 1.6; }
+.restore-dialog-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+.restore-dialog-actions button { padding: 12px 8px; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer; }
+.restore-dialog-cancel { border: 1px solid #45614d; background: rgb(255 255 255 / 5%); color: #d6e4da; }
+.restore-dialog-confirm { border: 1px solid #78d495; background: #78d495; color: #0f1612; }
+.restore-dialog-actions button:hover { filter: brightness(1.08); }
+.restore-dialog-actions button:focus-visible { outline: 2px solid #b7efc8; outline-offset: 3px; }
+@keyframes restore-dialog-enter { from { opacity: 0; transform: translateY(12px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media (prefers-reduced-motion: reduce) { .restore-dialog[open] { animation: none; } }

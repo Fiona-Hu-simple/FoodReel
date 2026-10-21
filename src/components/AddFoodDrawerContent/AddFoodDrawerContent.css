@@ -1,0 +1,107 @@
+.btn-primary {
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 1rem;
+  background: var(--panel-green);
+  color: #0f1612;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  box-shadow: 0 10px 15px -3px rgb(58 151 86 / 0.3), 0 4px 6px -4px rgb(58 151 86 / 0.2);
+  transition: all 150ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.add-food-content {
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field-label {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  color: var(--panel-text);
+}
+
+.field-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.input-primary {
+  width: 100%;
+  padding-left: 3rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 1rem;
+  background: var(--panel-surface);
+  border: 2px solid var(--panel-border);
+  outline: none;
+  font-size: 0.75rem;
+  line-height: 1.75rem;
+  transition: all 150ms;
+  box-sizing: border-box;
+  color: var(--panel-text);
+}
+
+.input-primary:focus {
+  border-color: var(--panel-green);
+  box-shadow: 0 0 0 4px rgb(58 151 86 / 0.2);
+}
+
+.input-hint-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: var(--panel-muted);
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+
+.chip-suggest {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius:  1rem;
+  background: var(--panel-surface);
+  border: 1px solid var(--panel-border);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--panel-text);
+  transition: all 150ms;
+  cursor: pointer;
+}
+
+.chip-suggest:hover {
+  border-color: var(--panel-green);
+  color: var(--panel-green);
+}
+
+.input-primary::placeholder { color: var(--panel-muted); }
+
+.btn-primary:not(:disabled):hover { background: #94e4ad; }

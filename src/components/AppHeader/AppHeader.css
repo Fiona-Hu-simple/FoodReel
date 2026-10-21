@@ -1,0 +1,55 @@
+.app-heading {
+  display: absolute;
+  align-items: center;
+  margin-left: 0.5rem;
+  margin-bottom: 1rem;
+  min-width: 0;
+  color: rgb(58, 151, 86);
+}
+
+.app-title-icon {
+  margin-top: -1rem;
+  display: inline-block;
+  width: 28px;
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+}
+
+.app-title {
+  font-size: 3rem;
+  line-height: 0.5;
+}
+
+.title-secondary {
+  display: absolute;
+  margin-left: 3rem;
+}
+
+.btn-calendar-fab {
+  width: 3.5rem;
+  height: 3.5rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-right: 0.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #000;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.btn-calendar-fab:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 4px;
+}
+
+@media (max-height: 700px) {
+  .app-heading { margin-bottom: 0.5rem; }
+  .app-title { font-size: 2.25rem; }
+  .btn-calendar-fab { width: 2.75rem; height: 2.75rem; }
+}

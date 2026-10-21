@@ -1,0 +1,107 @@
+.btn-close {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--panel-border);
+  color: var(--panel-muted);
+  transition: all 150ms;
+}
+
+.btn-close:hover {
+  background: var(--panel-border);
+}
+
+.btn-close:active {
+  transform: scale(0.95);
+}
+
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+}
+
+.drawer-panel {
+  --panel-surface: #19221c;
+  --panel-border: #33463a;
+  --panel-text: #f0f5f1;
+  --panel-muted: #a7b9ac;
+  --panel-green: #78d495;
+  --panel-green-soft: #203d2a;
+  color: var(--panel-text);
+  color-scheme: dark;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--panel-border);
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgb(15 22 18 / 96%);
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.drawer-handle {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.75rem;
+  padding-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+
+.drawer-handle-bar {
+  width: 3rem;
+  height: 6px;
+  background: var(--panel-muted);
+  border-radius: 9999px;
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-bottom: 0.75rem;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.drawer-title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  color: var(--panel-text);
+}
+
+.drawer-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.drawer-body::-webkit-scrollbar {
+  display: none;
+}
+
+.drawer-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+  flex-shrink: 0;
+}
+
+.drawer-panel button:focus-visible {
+  outline: 2px solid var(--panel-green);
+  outline-offset: 3px;
+}

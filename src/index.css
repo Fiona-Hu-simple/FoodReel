@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #f59e0b;
+  --color-primary-dark: #d97706;
+  --color-primary-light: #fbbf24;
+  --color-secondary: #f97316;
+  --color-accent: #ef4444;
+  --color-bg-cream: #fffbeb;
+  --color-bg-warm: #fef3c7;
+  --color-film-dark: #1f2937;
+  --color-film-light: #374151;
+  --color-tooth: #fbbf24;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  color-scheme: only light;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-x: clip;
+  overflow-y: auto;
+}
+
+body:has(.drawer-panel) {
+  overflow: hidden;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: rgb(15, 15, 15);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 全局字体工具类 */
+@font-face {
+  font-family: 'AC Filmstrip';
+  src: url('/fonts/ACFilmstrip.otf') format('opentype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.font-filmstrip {
+  font-family: 'AC Filmstrip', sans-serif;
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+/* ========== 通用工具类 ========== */
+
+.blur-anim {
+  filter: blur(0px);
+}
+
+.blur-anim-fast {
+  filter: blur(3px);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.text-shadow-glow {
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.5), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.panel-accent { color: var(--panel-green); }
+.panel-muted { color: var(--panel-muted); }
+.panel-text { color: var(--panel-text); }
